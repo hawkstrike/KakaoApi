@@ -12,7 +12,7 @@ import vo.kakaoWeb;
 public class KakaoApi {
 	public static void main(String[] args) {
 		try {
-			String apiKey = "34ffe4125b376ddf83937fbc9d557331";
+			String apiKey = "발급받은 ApiKey값을 입력";
 			String request = "web"; // web, vclip, image, blog, tip, book, cafe
 			String query = "알고리즘";
 			String sort = "accuracy";
