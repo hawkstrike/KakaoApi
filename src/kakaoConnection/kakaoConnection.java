@@ -59,7 +59,7 @@ public class kakaoConnection {
 		this.query = URLEncoder.encode(query, "UTF-8");
 		
 		if(!"".equals(this.query))
-			address += "?query=" + this.query;
+			this.address += "?query=" + this.query;
 	}
 	/*
 	 * sort, page, size를 직접 설정하는 생성자
@@ -75,13 +75,13 @@ public class kakaoConnection {
 		this.size = size;
 		
 		if(!"".equals(this.query))
-			address += "?query=" + this.query;
+			this.address += "?query=" + this.query;
 		if(!"".equals(this.query))
-			address += "&sort=" + this.sort;
+			this.address += "&sort=" + this.sort;
 		if(!"".equals(this.query))
-			address += "&page=" + this.page;
+			this.address += "&page=" + this.page;
 		if(!"".equals(this.query))
-			address += "&size=" + this.size;
+			this.address += "&size=" + this.size;
 	}
 	
 	/*
