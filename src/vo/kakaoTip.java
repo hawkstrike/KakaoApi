@@ -3,13 +3,13 @@ package vo;
 import java.util.Arrays;
 
 public class kakaoTip {
-	private String title; // ±Û Á¦¸ñ
-	private String contents; // ÆÀ º»¹® ÀÏºÎ(½º´ÏÇÍ ÃßÃâ)
-	private String q_url; // ÆÁ Áú¹® ±Û URL
-	private String a_url; // ÆÁ ´äº¯ ±Û URL
-	private String[] thumbnails; // ÆÁ ±Û¿¡ ´ëÇÑ ÀÌ¹ÌÁö ½æ³×ÀÏµé
-	private String type; // °Ë»öµÈ ±ÛÀÌ ´äº¯ÀÎÁö Áú¹®ÀÎÁö ¿©ºÎ
-	private String datetime; // ÆÁ Áú¹® ±Û ÀÛ¼º½Ã°£
+	private String title; // ê¸€ ì œëª©
+	private String contents; // íŒ€ ë³¸ë¬¸ ì¼ë¶€(ìŠ¤ë‹ˆí• ì¶”ì¶œ)
+	private String q_url; // íŒ ì§ˆë¬¸ ê¸€ URL
+	private String a_url; // íŒ ë‹µë³€ ê¸€ URL
+	private String[] thumbnails; // íŒ ê¸€ì— ëŒ€í•œ ì´ë¯¸ì§€ ì¸ë„¤ì¼ë“¤
+	private String type; // ê²€ìƒ‰ëœ ê¸€ì´ ë‹µë³€ì¸ì§€ ì§ˆë¬¸ì¸ì§€ ì—¬ë¶€
+	private String datetime; // íŒ ì§ˆë¬¸ ê¸€ ì‘ì„±ì‹œê°„
 	
 	public kakaoTip() {
 	}

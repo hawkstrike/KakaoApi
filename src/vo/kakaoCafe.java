@@ -1,12 +1,12 @@
 package vo;
 
 public class kakaoCafe {
-	private String title; // Ä«Æä ±Û Á¦¸ñ
-	private String contents; // Ä«Æä ±Û ³»¿ë Áß ÀÏºÎ
-	private String url; // Ä«Æä ±Û URL
-	private String cafename; // Ä«Æä ÀÌ¸§
-	private String thumbnail; // Ä«Æä ±Û ´ëÇ¥ ½æ³×ÀÏ
-	private String datetime; // µµ¼­ ÃâÆÇ³¯Â¥
+	private String title; // ì¹´í˜ ê¸€ ì œëª©
+	private String contents; // ì¹´í˜ ê¸€ ë‚´ìš© ì¤‘ ì¼ë¶€
+	private String url; // ì¹´í˜ ê¸€ URL
+	private String cafename; // ì¹´í˜ ì´ë¦„
+	private String thumbnail; // ì¹´í˜ ê¸€ ëŒ€í‘œ ì¸ë„¤ì¼
+	private String datetime; // ë„ì„œ ì¶œíŒë‚ ì§œ
 	
 	public kakaoCafe() {
 	}

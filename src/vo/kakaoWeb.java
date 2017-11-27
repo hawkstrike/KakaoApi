@@ -1,10 +1,10 @@
 package vo;
 
 public class kakaoWeb {
-	private String title; // ¹®¼­ Á¦¸ñ
-	private String contents; // ¹®¼­ º»¹® Áß ÀÏºÎ
-	private String url; // ¹®¼­ URL
-	private String datetime; // ¹®¼­ ±Û ÀÛ¼º½Ã°£
+	private String title; // ë¬¸ì„œ ì œëª©
+	private String contents; // ë¬¸ì„œ ë³¸ë¬¸ ì¤‘ ì¼ë¶€
+	private String url; // ë¬¸ì„œ URL
+	private String datetime; // ë¬¸ì„œ ê¸€ ì‘ì„±ì‹œê°„
 	
 	public kakaoWeb() {
 		

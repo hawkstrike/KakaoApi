@@ -1,12 +1,12 @@
 package vo;
 
 public class kakaoBlog {
-	private String title; // ºí·Î±× ±Û Á¦¸ñ
-	private String contents; // ºí·Î±× ±Û ¿ä¾à
-	private String url; // ºí·Î±× ±Û URL
-	private String blogname; // ºí·Î±×ÀÇ ÀÌ¸§
-	private String thumbnail; // °Ë»ö½Ã½ºÅÛ¿¡¼­ ÃßÃâÇÑ ´ëÇ¥ ½æ³×ÀÏ.
-	private String datetime; // ºí·Î±× ±Û ÀÛ¼º½Ã°£
+	private String title; // ë¸”ë¡œê·¸ ê¸€ ì œëª©
+	private String contents; // ë¸”ë¡œê·¸ ê¸€ ìš”ì•½
+	private String url; // ë¸”ë¡œê·¸ ê¸€ URL
+	private String blogname; // ë¸”ë¡œê·¸ì˜ ì´ë¦„
+	private String thumbnail; // ê²€ìƒ‰ì‹œìŠ¤í…œì—ì„œ ì¶”ì¶œí•œ ëŒ€í‘œ ì¸ë„¤ì¼.
+	private String datetime; // ë¸”ë¡œê·¸ ê¸€ ì‘ì„±ì‹œê°„
 	
 	public kakaoBlog() {
 	}

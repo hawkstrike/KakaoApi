@@ -21,35 +21,35 @@ import vo.kakaoWeb;
 public class kakaoConnection {
 	private URL url;
 	private HttpURLConnection conn;
-	// ¹ß±Ş¹ŞÀº ApiKey °ª
+	// ë°œê¸‰ë°›ì€ ApiKey ê°’
 	private String apiKey;
-	// header³» Authorization ¼³Á¤À» À§ÇÑ º¯¼ö
+	// headerë‚´ Authorization ì„¤ì •ì„ ìœ„í•œ ë³€ìˆ˜
 	private String authorization = "KakaoAK ";
-	// Api¿¡ Á¢±ÙÇÒ ¶§ °øÅëÀûÀ¸·Î µî·¯°¡´Â ÁÖ¼Ò¸¦ À§ÇÑ º¯¼ö
+	// Apiì— ì ‘ê·¼í•  ë•Œ ê³µí†µì ìœ¼ë¡œ ë“±ëŸ¬ê°€ëŠ” ì£¼ì†Œë¥¼ ìœ„í•œ ë³€ìˆ˜
 	private String host = "https://dapi.kakao.com/v2/search/";
-	// Á¢¼Ó ¹æ½ÄÀ» ¼³Á¤ÇÏ´Â º¯¼ö
+	// ì ‘ì† ë°©ì‹ì„ ì„¤ì •í•˜ëŠ” ë³€ìˆ˜
 	private String method = "GET";
 	private String contentType = "application/json;charset=UTF-8";
-	// blog, book, cafe, image, tip, vclip, web Áß ¾î¶² °Ë»öÀ» ÇÒÁö °í¸£´Â º¯¼ö
+	// blog, book, cafe, image, tip, vclip, web ì¤‘ ì–´ë–¤ ê²€ìƒ‰ì„ í• ì§€ ê³ ë¥´ëŠ” ë³€ìˆ˜
 	private String request;
-	// ½ÇÁ¦·Î Api¿¡ Á¢±ÙÇÒ ÁÖ¼Ò¸¦ À§ÇÑ º¯¼ö
+	// ì‹¤ì œë¡œ Apiì— ì ‘ê·¼í•  ì£¼ì†Œë¥¼ ìœ„í•œ ë³€ìˆ˜
 	private String address;
-	// °Ë»öÇÒ Äõ¸®¸¦ ÁöÁ¤ÇÏ´Â º¯¼ö - ÇÊ¼ö
+	// ê²€ìƒ‰í•  ì¿¼ë¦¬ë¥¼ ì§€ì •í•˜ëŠ” ë³€ìˆ˜ - í•„ìˆ˜
 	private String query;
-	// Á¤·Ä ¹æ¹ıÀ» ¼±ÅÃÇÏ´Â º¯¼ö | accuracy, recency | ±âº»°ª : accuracy
+	// ì •ë ¬ ë°©ë²•ì„ ì„ íƒí•˜ëŠ” ë³€ìˆ˜ | accuracy, recency | ê¸°ë³¸ê°’ : accuracy
 	private String sort;
-	// ¸î ¹øÂ° ÆäÀÌÁöÀÇ °á°ú¹°À» °¡Áö°í ¿ÃÁö Á¤ÇÏ´Â º¯¼ö
-	// 1 ~ 50 »çÀÌ | ±âº»°ª : 1
+	// ëª‡ ë²ˆì§¸ í˜ì´ì§€ì˜ ê²°ê³¼ë¬¼ì„ ê°€ì§€ê³  ì˜¬ì§€ ì •í•˜ëŠ” ë³€ìˆ˜
+	// 1 ~ 50 ì‚¬ì´ | ê¸°ë³¸ê°’ : 1
 	private String page;
-	// °Ë»öµÈ °á°ú¹°µéÀ» ¸î°³ °¡Áö°í ¿ÃÁö Á¤ÇÏ´Â º¯¼ö
-	// 1 ~ 50 »çÀÌ | ±âº»°ª : 10
+	// ê²€ìƒ‰ëœ ê²°ê³¼ë¬¼ë“¤ì„ ëª‡ê°œ ê°€ì§€ê³  ì˜¬ì§€ ì •í•˜ëŠ” ë³€ìˆ˜
+	// 1 ~ 50 ì‚¬ì´ | ê¸°ë³¸ê°’ : 10
 	private String size;
 	
 	public kakaoConnection() {
 	}
 	
 	/*
-	 * sort, page, size¸¦ kakao¿¡¼­ Á¦°øÇÏ´Â ±âº»°ªÀ¸·Î »ç¿ëÇÏ´Â °æ¿ìÀÇ »ı¼ºÀÚ
+	 * sort, page, sizeë¥¼ kakaoì—ì„œ ì œê³µí•˜ëŠ” ê¸°ë³¸ê°’ìœ¼ë¡œ ì‚¬ìš©í•˜ëŠ” ê²½ìš°ì˜ ìƒì„±ì
 	 */
 	public kakaoConnection(String apiKey, String request, String query) throws UnsupportedEncodingException {
 		this.apiKey = apiKey;
@@ -62,7 +62,7 @@ public class kakaoConnection {
 			address += "?query=" + this.query;
 	}
 	/*
-	 * sort, page, size¸¦ Á÷Á¢ ¼³Á¤ÇÏ´Â »ı¼ºÀÚ
+	 * sort, page, sizeë¥¼ ì§ì ‘ ì„¤ì •í•˜ëŠ” ìƒì„±ì
 	 */
 	public kakaoConnection(String apiKey, String request, String query, String sort, String page, String size) throws UnsupportedEncodingException {
 		this.apiKey = apiKey;
@@ -85,9 +85,9 @@ public class kakaoConnection {
 	}
 	
 	/*
-	 * Á¢¼ÓÀ» ½ÃµµÇÏ´Â ¸Ş¼Òµå
-	 * Á¢¼Ó¿¡ ¼º°ø¿©ºÎ¿¡ »ó°ü¾øÀÌ kakao·ÎºÎÅÍ ¹ŞÀº °ªÀ» ¸®ÅÏÇÏ¸ç
-	 * 200ÀÌ¸é Á¢¼Ó¿¡ ¼º°øÇÑ °ÍÀÓ.
+	 * ì ‘ì†ì„ ì‹œë„í•˜ëŠ” ë©”ì†Œë“œ
+	 * ì ‘ì†ì— ì„±ê³µì—¬ë¶€ì— ìƒê´€ì—†ì´ kakaoë¡œë¶€í„° ë°›ì€ ê°’ì„ ë¦¬í„´í•˜ë©°
+	 * 200ì´ë©´ ì ‘ì†ì— ì„±ê³µí•œ ê²ƒì„.
 	 */
 	public int getResponseCode() {
 		int getResponseCode = 0;
@@ -109,8 +109,8 @@ public class kakaoConnection {
 	}
 	
 	/*
-	 * getResponseCode()¸¦ ÅëÇØ 200À» ¹İÈ¯ ¹Ş¾Ò´Ù¸é
-	 * Á¤»óÁ¢¼ÓÀÌ¹Ç·Î ÀÌ ¸Ş¼Òµå¸¦ ÅëÇØ °á°ú °ªµéÀ» ¹Ş¾Æ¿Ã ¼ö ÀÖÀ½.
+	 * getResponseCode()ë¥¼ í†µí•´ 200ì„ ë°˜í™˜ ë°›ì•˜ë‹¤ë©´
+	 * ì •ìƒì ‘ì†ì´ë¯€ë¡œ ì´ ë©”ì†Œë“œë¥¼ í†µí•´ ê²°ê³¼ ê°’ë“¤ì„ ë°›ì•„ì˜¬ ìˆ˜ ìˆìŒ.
 	 */
 	public JSONObject getResponseData() {
 		JSONObject json = new JSONObject();
@@ -134,14 +134,14 @@ public class kakaoConnection {
 	}
 	
 	/*
-	 * Á¢¼ÓÀ» ÇØÁ¦ÇÏ´Â ¸Ş¼Òµå
+	 * ì ‘ì†ì„ í•´ì œí•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public void disConnection() {
 		conn.disconnect();
 	}
 	
 	/*
-	 * À¥(web) °Ë»ö °á°ú¸¦ ÆÄ½ÌÇÏ´Â ¸Ş¼Òµå
+	 * ì›¹(web) ê²€ìƒ‰ ê²°ê³¼ë¥¼ íŒŒì‹±í•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public kakaoWeb webSearch(JSONObject json) {
 		kakaoWeb kakaoweb = new kakaoWeb();
@@ -162,13 +162,13 @@ public class kakaoConnection {
 			}
 		}
 		else
-			System.out.println("°Ë»öµÈ °á°ú°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ê²€ìƒ‰ëœ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		
 		return kakaoweb;
 	}
 	
 	/*
-	 * µ¿¿µ»ó(vclip) °Ë»ö °á°ú¸¦ ÆÄ½ÌÇÏ´Â ¸Ş¼Òµå
+	 * ë™ì˜ìƒ(vclip) ê²€ìƒ‰ ê²°ê³¼ë¥¼ íŒŒì‹±í•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public kakaoVclip vclipSearch(JSONObject json) {
 		kakaoVclip kakaovclip = new kakaoVclip();
@@ -195,13 +195,13 @@ public class kakaoConnection {
 			}
 		}
 		else
-			System.out.println("°Ë»öµÈ °á°ú°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ê²€ìƒ‰ëœ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		
 		return kakaovclip;
 	}
 	
 	/*
-	 * ÀÌ¹ÌÁö(image) °Ë»ö °á°ú¸¦ ÆÄ½ÌÇÏ´Â ¸Ş¼Òµå
+	 * ì´ë¯¸ì§€(image) ê²€ìƒ‰ ê²°ê³¼ë¥¼ íŒŒì‹±í•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public kakaoImage imageSearch(JSONObject json) {
 		kakaoImage kakaoimage = new kakaoImage();
@@ -234,13 +234,13 @@ public class kakaoConnection {
 			}
 		}
 		else
-			System.out.println("°Ë»öµÈ °á°ú°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ê²€ìƒ‰ëœ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		
 		return kakaoimage;
 	}
 	
 	/*
-	 * ºí·Î±×(blog) °Ë»ö °á°ú¸¦ ÆÄ½ÌÇÏ´Â ¸Ş¼Òµå
+	 * ë¸”ë¡œê·¸(blog) ê²€ìƒ‰ ê²°ê³¼ë¥¼ íŒŒì‹±í•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public kakaoBlog blogSearch(JSONObject json) {
 		kakaoBlog kakaoblog = new kakaoBlog();
@@ -265,13 +265,13 @@ public class kakaoConnection {
 			}
 		}
 		else
-			System.out.println("°Ë»öµÈ °á°ú°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ê²€ìƒ‰ëœ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		
 		return kakaoblog;
 	}
 	
 	/*
-	 * ÆÁ(tip) °Ë»ö °á°ú¸¦ ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+	 * íŒ(tip) ê²€ìƒ‰ ê²°ê³¼ë¥¼ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public kakaoTip tipSearch(JSONObject json) {
 		kakaoTip kakaotip = new kakaoTip();
@@ -302,13 +302,13 @@ public class kakaoConnection {
 			}
 		}
 		else
-			System.out.println("°Ë»öµÈ °á°ú°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ê²€ìƒ‰ëœ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		
 		return kakaotip;
 	}
 	
 	/*
-	 * Ã¥(book) °Ë»ö °á°ú¸¦ ÆÄ½ÌÇÏ´Â ¸Ş¼Òµå
+	 * ì±…(book) ê²€ìƒ‰ ê²°ê³¼ë¥¼ íŒŒì‹±í•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public kakaoBook bookSearch(JSONObject json) {
 		kakaoBook kakaobook = new kakaoBook();
@@ -365,13 +365,13 @@ public class kakaoConnection {
 			}
 		}
 		else
-			System.out.println("°Ë»öµÈ °á°ú°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ê²€ìƒ‰ëœ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		
 		return kakaobook;
 	}
 	
 	/*
-	 * Ä«Æä(cafe) °Ë»ö °á°ú¸¦ ÆÄ½ÌÇÏ´Â ¸Ş¼Òµå
+	 * ì¹´í˜(cafe) ê²€ìƒ‰ ê²°ê³¼ë¥¼ íŒŒì‹±í•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public kakaoCafe cafeSearch(JSONObject json) {
 		kakaoCafe kakaocafe = new kakaoCafe();
@@ -396,7 +396,7 @@ public class kakaoConnection {
 			}
 		}
 		else
-			System.out.println("°Ë»öµÈ °á°ú°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ê²€ìƒ‰ëœ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		
 		return kakaocafe;
 	}

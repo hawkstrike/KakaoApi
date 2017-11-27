@@ -3,22 +3,22 @@ package vo;
 import java.util.Arrays;
 
 public class kakaoBook {
-	private String title; // µµ¼­ Á¦¸ñ
-	private String contents; // µµ¼­ ¼Ò°³
-	private String url; // Ã¥ ¸µÅ©
-	private String isbn; // ±¹Á¦ Ç¥ÁØ µµ¼­¹øÈ£
-	private String datetime; // µµ¼­ ÃâÆÇ ³¯Â¥
-	private String[] authors; // µµ¼­ ÀúÀÚ ¸®½ºÆ®
-	private String publisher; // ÃâÆÇ»ç
-	private String[] translators; // º¯¿ªÀÚ ¸®½ºÆ®
-	private int price; // µµ¼­ Á¤°¡
-	private int sale_price; // µµ¼­ ÆÇ¸Å°¡
-	private String sale_yn; // µµ¼­ ÆÇ¸Å ¿©ºÎ
-	private String category; // µµ¼­ Ä«Å×°í¸® Á¤º¸
-	private String thumbnail; // µµ¼­ Ç¥Áö ½æ³×ÀÏ
-	private String barcode; // ±³º¸¹®°í ¹ÙÄÚµå Á¤º¸
-	private String ebook_barcode; // ±³º¸¹®°í ÀüÀÚÃ¥ ¹ÙÄÚµå Á¤º¸
-	private String status; // µµ¼­ »óÅÂ Á¤º¸
+	private String title; // ë„ì„œ ì œëª©
+	private String contents; // ë„ì„œ ì†Œê°œ
+	private String url; // ì±… ë§í¬
+	private String isbn; // êµ­ì œ í‘œì¤€ ë„ì„œë²ˆí˜¸
+	private String datetime; // ë„ì„œ ì¶œíŒ ë‚ ì§œ
+	private String[] authors; // ë„ì„œ ì €ì ë¦¬ìŠ¤íŠ¸
+	private String publisher; // ì¶œíŒì‚¬
+	private String[] translators; // ë³€ì—­ì ë¦¬ìŠ¤íŠ¸
+	private int price; // ë„ì„œ ì •ê°€
+	private int sale_price; // ë„ì„œ íŒë§¤ê°€
+	private String sale_yn; // ë„ì„œ íŒë§¤ ì—¬ë¶€
+	private String category; // ë„ì„œ ì¹´í…Œê³ ë¦¬ ì •ë³´
+	private String thumbnail; // ë„ì„œ í‘œì§€ ì¸ë„¤ì¼
+	private String barcode; // êµë³´ë¬¸ê³  ë°”ì½”ë“œ ì •ë³´
+	private String ebook_barcode; // êµë³´ë¬¸ê³  ì „ìì±… ë°”ì½”ë“œ ì •ë³´
+	private String status; // ë„ì„œ ìƒíƒœ ì •ë³´
 	
 	public kakaoBook() {
 	}

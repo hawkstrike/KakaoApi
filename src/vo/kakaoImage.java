@@ -1,14 +1,14 @@
 package vo;
 
 public class kakaoImage {
-	private String collection; // ÄÃ·º¼Ç ¸í
-	private String thumbnail_url; // ÀÌ¹ÌÁö ½æ³×ÀÏ URL
-	private String image_url; // ÀÌ¹ÌÁö URL
-	private int width; // ÀÌ¹ÌÁöÀÇ °¡·Î Å©±â
-	private int height; // ÀÌ¹ÌÁöÀÇ ¼¼·Î Å©±â
-	private String display_sitename; // ÃâÃ³¸í
-	private String doc_url; // ¹®¼­ URL
-	private String datetime; // ¹®¼­ ÀÛ¼º½Ã°£
+	private String collection; // ì»¬ë ‰ì…˜ ëª…
+	private String thumbnail_url; // ì´ë¯¸ì§€ ì¸ë„¤ì¼ URL
+	private String image_url; // ì´ë¯¸ì§€ URL
+	private int width; // ì´ë¯¸ì§€ì˜ ê°€ë¡œ í¬ê¸°
+	private int height; // ì´ë¯¸ì§€ì˜ ì„¸ë¡œ í¬ê¸°
+	private String display_sitename; // ì¶œì²˜ëª…
+	private String doc_url; // ë¬¸ì„œ URL
+	private String datetime; // ë¬¸ì„œ ì‘ì„±ì‹œê°„
 	
 	public kakaoImage() {
 	}

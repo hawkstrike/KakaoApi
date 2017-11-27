@@ -12,9 +12,9 @@ import vo.kakaoWeb;
 public class KakaoApi {
 	public static void main(String[] args) {
 		try {
-			String apiKey = "¹ß±Ş¹ŞÀº ApiKey°ªÀ» ÀÔ·Â";
+			String apiKey = "ë°œê¸‰ë°›ì€ ApiKeyê°’ì„ ì…ë ¥";
 			String request = "web"; // web, vclip, image, blog, tip, book, cafe
-			String query = "¾Ë°í¸®Áò";
+			String query = "ì•Œê³ ë¦¬ì¦˜";
 			String sort = "accuracy";
 			String page = "2";
 			String size = "10";
@@ -27,7 +27,7 @@ public class KakaoApi {
 			kakaoCafe kakaocafe = new kakaoCafe();
 			kakaoConnection kc = new kakaoConnection();
 			
-			// »ı¼ºÀÚ ¿¹Á¦
+			// ìƒì„±ì ì˜ˆì œ
 			kc = new kakaoConnection(apiKey, request, query);
 			kc = new kakaoConnection(apiKey, request, query, sort, page, size);
 			
@@ -36,8 +36,8 @@ public class KakaoApi {
 			if(responseCode == 200) {
 				JSONObject json = kc.getResponseData();
 				
-				// request¿¡ ÀÔ·ÂµÈ °ª¿¡ µû¶ó ¾î¶² °Ë»ö °á°úÀÎÁö ¾Ë¾Æ³»¼­
-				// request¿¡ ¸Â°Ô ÆÄ½ÌÀ» ÇÏ°í ¸®ÅÏ ¹ŞÀ½.
+				// requestì— ì…ë ¥ëœ ê°’ì— ë”°ë¼ ì–´ë–¤ ê²€ìƒ‰ ê²°ê³¼ì¸ì§€ ì•Œì•„ë‚´ì„œ
+				// requestì— ë§ê²Œ íŒŒì‹±ì„ í•˜ê³  ë¦¬í„´ ë°›ìŒ.
 				if("web".equals(request))
 					kakaoweb = kc.webSearch(json);
 				if("vclip".equals(request))
@@ -54,7 +54,7 @@ public class KakaoApi {
 					kakaocafe = kc.cafeSearch(json);
 			}
 			
-			// À§¿¡¼­ ÆÄ½ÌµÇ¾î ¹İÈ¯µÈ °´Ã¼¸¸ Á¤»óÀûÀ¸·Î Ãâ·ÂµÇ°í ³ª¸ÓÁö´Â null
+			// ìœ„ì—ì„œ íŒŒì‹±ë˜ì–´ ë°˜í™˜ëœ ê°ì²´ë§Œ ì •ìƒì ìœ¼ë¡œ ì¶œë ¥ë˜ê³  ë‚˜ë¨¸ì§€ëŠ” null
 			System.out.println(kakaoweb.toString());
 			System.out.println(kakaovclip.toString());
 			System.out.println(kakaoimage.toString());

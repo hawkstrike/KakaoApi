@@ -1,12 +1,12 @@
 package vo;
 
 public class kakaoVclip {
-	private String title; // µ¿¿µ»ó Á¦¸ñ
-	private String url; // µ¿¿µ»ó ¸µÅ©
-	private String datetime; // µ¿¿µ»ó µî·ÏÀÏ
-	private int play_time; // µ¿¿µ»ó Àç»ı½Ã°£(´ÜÀ§: ÃÊ)
-	private String thumbnail; // µ¿¿µ»ó ½æ³×ÀÏ URL
-	private String author; // µ¿¿µ»ó ¾÷·Î´õ
+	private String title; // ë™ì˜ìƒ ì œëª©
+	private String url; // ë™ì˜ìƒ ë§í¬
+	private String datetime; // ë™ì˜ìƒ ë“±ë¡ì¼
+	private int play_time; // ë™ì˜ìƒ ì¬ìƒì‹œê°„(ë‹¨ìœ„: ì´ˆ)
+	private String thumbnail; // ë™ì˜ìƒ ì¸ë„¤ì¼ URL
+	private String author; // ë™ì˜ìƒ ì—…ë¡œë”
 	
 	public kakaoVclip() {
 	}
