@@ -427,6 +427,16 @@ public class kakaoConnection {
 
 	public void setRequest(String request) {
 		this.request = request;
+		
+		this.address = this.host + this.request;
+		if(!"".equals(getQuery()))
+			this.address += "?query=" + getQuery();
+		if(!"".equals(getSort()) && !"".equals(getQuery()))
+			this.address += "&sort=" + getSort();
+		if(!"".equals(getPage()) && !"".equals(getQuery()))
+			this.address += "&page=" + getPage();
+		if(!"".equals(getSize()) && !"".equals(getQuery()))
+			this.address += "&size=" + getSize();
 	}
 
 	public String getAddress() {
@@ -439,6 +449,11 @@ public class kakaoConnection {
 
 	public void setQuery(String query) throws UnsupportedEncodingException {
 		this.query = URLEncoder.encode(query, "UTF-8");
+		
+		if(!"".equals(this.request))
+			this.address = this.host + this.request;
+		if(!"".equals(this.query) && !"".equals(this.request))
+			this.address += "?query=" + this.query;
 	}
 
 	public String getSort() {
