@@ -6,6 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -143,40 +145,43 @@ public class kakaoConnection {
 	/*
 	 * 웹(web) 검색 결과를 파싱하는 메소드
 	 */
-	public kakaoWeb webSearch(JSONObject json) {
-		kakaoWeb kakaoweb = new kakaoWeb();
+	public LinkedList<kakaoWeb> webSearch(JSONObject json) {
+		LinkedList<kakaoWeb> list = new LinkedList<kakaoWeb>();
 		
 		if(!json.isNull("documents")) {
 			JSONArray ja = json.getJSONArray("documents");
 			
 			for(int i = 0; i < ja.length(); i++) {
+				kakaoWeb web = new kakaoWeb();
 				String title = ja.getJSONObject(i).getString("title");
 				String contents = ja.getJSONObject(i).getString("contents");
 				String url = ja.getJSONObject(i).getString("url");
 				String datetime = ja.getJSONObject(i).getString("datetime");
 				
-				kakaoweb.setTitle(title);
-				kakaoweb.setContents(contents);
-				kakaoweb.setUrl(url);
-				kakaoweb.setDatetime(datetime);
+				web.setTitle(title);
+				web.setContents(contents);
+				web.setUrl(url);
+				web.setDatetime(datetime);
+				list.add(web);
 			}
 		}
 		else
 			System.out.println("검색된 결과가 없습니다.");
 		
-		return kakaoweb;
+		return list;
 	}
 	
 	/*
 	 * 동영상(vclip) 검색 결과를 파싱하는 메소드
 	 */
-	public kakaoVclip vclipSearch(JSONObject json) {
-		kakaoVclip kakaovclip = new kakaoVclip();
+	public LinkedList<kakaoVclip> vclipSearch(JSONObject json) {
+		LinkedList<kakaoVclip> list = new LinkedList<kakaoVclip>();
 		
 		if(!json.isNull("documents")) {
 			JSONArray ja = json.getJSONArray("documents");
 			
 			for(int i = 0; i < ja.length(); i++) {
+				kakaoVclip vclip = new kakaoVclip();
 				String title = ja.getJSONObject(i).getString("title");
 				String url = ja.getJSONObject(i).getString("url");
 				String datetime = ja.getJSONObject(i).getString("datetime");
@@ -186,30 +191,32 @@ public class kakaoConnection {
 				String thumbnail = ja.getJSONObject(i).getString("thumbnail");
 				String author = ja.getJSONObject(i).getString("author");
 				
-				kakaovclip.setTitle(title);
-				kakaovclip.setUrl(url);
-				kakaovclip.setDatetime(datetime);
-				kakaovclip.setPlay_time(play_time);
-				kakaovclip.setThumbnail(thumbnail);
-				kakaovclip.setAuthor(author);
+				vclip.setTitle(title);
+				vclip.setUrl(url);
+				vclip.setDatetime(datetime);
+				vclip.setPlay_time(play_time);
+				vclip.setThumbnail(thumbnail);
+				vclip.setAuthor(author);
+				list.add(vclip);
 			}
 		}
 		else
 			System.out.println("검색된 결과가 없습니다.");
 		
-		return kakaovclip;
+		return list;
 	}
 	
 	/*
 	 * 이미지(image) 검색 결과를 파싱하는 메소드
 	 */
-	public kakaoImage imageSearch(JSONObject json) {
-		kakaoImage kakaoimage = new kakaoImage();
+	public LinkedList<kakaoImage> imageSearch(JSONObject json) {
+		LinkedList<kakaoImage> list = new LinkedList<kakaoImage>();
 		
 		if(!json.isNull("documents")) {
 			JSONArray ja = json.getJSONArray("documents");
 			
 			for(int i = 0; i < ja.length(); i++) {
+				kakaoImage image = new kakaoImage();
 				String collection = ja.getJSONObject(i).getString("collection");
 				String thumbnail_url = ja.getJSONObject(i).getString("thumbnail_url");
 				String image_url = ja.getJSONObject(i).getString("image_url");
@@ -223,32 +230,34 @@ public class kakaoConnection {
 				String doc_url = ja.getJSONObject(i).getString("doc_url");
 				String datetime = ja.getJSONObject(i).getString("datetime");
 				
-				kakaoimage.setCollection(collection);
-				kakaoimage.setThumbnail_url(thumbnail_url);
-				kakaoimage.setImage_url(image_url);
-				kakaoimage.setWidth(width);
-				kakaoimage.setHeight(height);
-				kakaoimage.setDisplay_sitename(display_sitename);
-				kakaoimage.setDoc_url(doc_url);
-				kakaoimage.setDatetime(datetime);
+				image.setCollection(collection);
+				image.setThumbnail_url(thumbnail_url);
+				image.setImage_url(image_url);
+				image.setWidth(width);
+				image.setHeight(height);
+				image.setDisplay_sitename(display_sitename);
+				image.setDoc_url(doc_url);
+				image.setDatetime(datetime);
+				list.add(image);
 			}
 		}
 		else
 			System.out.println("검색된 결과가 없습니다.");
 		
-		return kakaoimage;
+		return list;
 	}
 	
 	/*
 	 * 블로그(blog) 검색 결과를 파싱하는 메소드
 	 */
-	public kakaoBlog blogSearch(JSONObject json) {
-		kakaoBlog kakaoblog = new kakaoBlog();
+	public LinkedList<kakaoBlog> blogSearch(JSONObject json) {
+		LinkedList<kakaoBlog> list = new LinkedList<kakaoBlog>();
 		
 		if(!json.isNull("documents")) {
 			JSONArray ja = json.getJSONArray("documents");
 			
 			for(int i = 0; i < ja.length(); i++) {
+				kakaoBlog blog = new kakaoBlog();
 				String title = ja.getJSONObject(i).getString("title");
 				String contents = ja.getJSONObject(i).getString("contents");
 				String url = ja.getJSONObject(i).getString("url");
@@ -256,30 +265,32 @@ public class kakaoConnection {
 				String thumbnail = ja.getJSONObject(i).getString("thumbnail");
 				String datetime = ja.getJSONObject(i).getString("datetime");
 				
-				kakaoblog.setTitle(title);
-				kakaoblog.setContents(contents);
-				kakaoblog.setUrl(url);
-				kakaoblog.setBlogname(blogname);
-				kakaoblog.setThumbnail(thumbnail);
-				kakaoblog.setDatetime(datetime);
+				blog.setTitle(title);
+				blog.setContents(contents);
+				blog.setUrl(url);
+				blog.setBlogname(blogname);
+				blog.setThumbnail(thumbnail);
+				blog.setDatetime(datetime);
+				list.add(blog);
 			}
 		}
 		else
 			System.out.println("검색된 결과가 없습니다.");
 		
-		return kakaoblog;
+		return list;
 	}
 	
 	/*
 	 * 팁(tip) 검색 결과를 반환하는 메소드
 	 */
-	public kakaoTip tipSearch(JSONObject json) {
-		kakaoTip kakaotip = new kakaoTip();
+	public LinkedList<kakaoTip> tipSearch(JSONObject json) {
+		LinkedList<kakaoTip> list = new LinkedList<kakaoTip>();
 		
 		if(!json.isNull("documents")) {
 			JSONArray ja = json.getJSONArray("documents");
 			
 			for(int i = 0; i < ja.length(); i++) {
+				kakaoTip tip = new kakaoTip();
 				String title = ja.getJSONObject(i).getString("title");
 				String contents = ja.getJSONObject(i).getString("contents");
 				String q_url = ja.getJSONObject(i).getString("q_url");
@@ -292,31 +303,33 @@ public class kakaoConnection {
 				String type = ja.getJSONObject(i).getString("type");
 				String datetime = ja.getJSONObject(i).getString("datetime");
 				
-				kakaotip.setTitle(title);
-				kakaotip.setContents(contents);
-				kakaotip.setQ_url(q_url);
-				kakaotip.setA_url(a_url);
-				kakaotip.setThumbnails(thumbnails);
-				kakaotip.setType(type);
-				kakaotip.setDatetime(datetime);
+				tip.setTitle(title);
+				tip.setContents(contents);
+				tip.setQ_url(q_url);
+				tip.setA_url(a_url);
+				tip.setThumbnails(thumbnails);
+				tip.setType(type);
+				tip.setDatetime(datetime);
+				list.add(tip);
 			}
 		}
 		else
 			System.out.println("검색된 결과가 없습니다.");
 		
-		return kakaotip;
+		return list;
 	}
 	
 	/*
 	 * 책(book) 검색 결과를 파싱하는 메소드
 	 */
-	public kakaoBook bookSearch(JSONObject json) {
-		kakaoBook kakaobook = new kakaoBook();
+	public LinkedList<kakaoBook> bookSearch(JSONObject json) {
+		LinkedList<kakaoBook> list = new LinkedList<kakaoBook>();
 		
 		if(!json.isNull("documents")) {
 			JSONArray ja = json.getJSONArray("documents");
 			
 			for(int i = 0; i < ja.length(); i++) {
+				kakaoBook book = new kakaoBook();
 				String title = ja.getJSONObject(i).getString("title");
 				String contents = ja.getJSONObject(i).getString("contents");
 				String url = ja.getJSONObject(i).getString("url");
@@ -346,40 +359,42 @@ public class kakaoConnection {
 				String ebook_barcode = ja.getJSONObject(i).getString("ebook_barcode");
 				String status = ja.getJSONObject(i).getString("status");
 				
-				kakaobook.setTitle(title);
-				kakaobook.setContents(contents);
-				kakaobook.setUrl(url);
-				kakaobook.setIsbn(isbn);
-				kakaobook.setDatetime(datetime);
-				kakaobook.setAuthors(authors);
-				kakaobook.setPublisher(publisher);
-				kakaobook.setTranslators(translators);
-				kakaobook.setPrice(price);
-				kakaobook.setSale_price(sale_price);
-				kakaobook.setSale_yn(sale_yn);
-				kakaobook.setCategory(category);
-				kakaobook.setThumbnail(thumbnail);
-				kakaobook.setBarcode(barcode);
-				kakaobook.setEbook_barcode(ebook_barcode);
-				kakaobook.setStatus(status);
+				book.setTitle(title);
+				book.setContents(contents);
+				book.setUrl(url);
+				book.setIsbn(isbn);
+				book.setDatetime(datetime);
+				book.setAuthors(authors);
+				book.setPublisher(publisher);
+				book.setTranslators(translators);
+				book.setPrice(price);
+				book.setSale_price(sale_price);
+				book.setSale_yn(sale_yn);
+				book.setCategory(category);
+				book.setThumbnail(thumbnail);
+				book.setBarcode(barcode);
+				book.setEbook_barcode(ebook_barcode);
+				book.setStatus(status);
+				list.add(book);
 			}
 		}
 		else
 			System.out.println("검색된 결과가 없습니다.");
 		
-		return kakaobook;
+		return list;
 	}
 	
 	/*
 	 * 카페(cafe) 검색 결과를 파싱하는 메소드
 	 */
-	public kakaoCafe cafeSearch(JSONObject json) {
-		kakaoCafe kakaocafe = new kakaoCafe();
+	public LinkedList<kakaoCafe> cafeSearch(JSONObject json) {
+		LinkedList<kakaoCafe> list = new LinkedList<kakaoCafe>();
 		
 		if(!json.isNull("documents")) {
 			JSONArray ja = json.getJSONArray("documents");
 			
 			for(int i = 0; i < ja.length(); i++) {
+				kakaoCafe cafe = new kakaoCafe();
 				String title = ja.getJSONObject(i).getString("title");
 				String contents = ja.getJSONObject(i).getString("contents");
 				String url = ja.getJSONObject(i).getString("url");
@@ -387,18 +402,19 @@ public class kakaoConnection {
 				String thumbnail = ja.getJSONObject(i).getString("thumbnail");
 				String datetime = ja.getJSONObject(i).getString("datetime");
 				
-				kakaocafe.setTitle(title);
-				kakaocafe.setContents(contents);
-				kakaocafe.setUrl(url);
-				kakaocafe.setCafename(cafename);
-				kakaocafe.setThumbnail(thumbnail);
-				kakaocafe.setDatetime(datetime);
+				cafe.setTitle(title);
+				cafe.setContents(contents);
+				cafe.setUrl(url);
+				cafe.setCafename(cafename);
+				cafe.setThumbnail(thumbnail);
+				cafe.setDatetime(datetime);
+				list.add(cafe);
 			}
 		}
 		else
 			System.out.println("검색된 결과가 없습니다.");
 		
-		return kakaocafe;
+		return list;
 	}
 
 	public String getApiKey() {
